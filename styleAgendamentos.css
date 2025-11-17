@@ -1,0 +1,440 @@
+
+:root {
+    --rosa-claro: #FFC2D1;
+    --rosa-medio: #FF8FAB;
+    --rosa-escuro: #FB6F92;
+    --branco: #FFFFFF;
+    --cinza-claro: #F8F9FA;
+    --cinza-texto: #555555;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--cinza-texto);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-color: var(--cinza-claro);
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--rosa-escuro);
+    margin-bottom: 1rem;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header */
+header {
+    background-color: var(--branco);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0;
+    color: var(--rosa-escuro);
+}
+
+.logo span {
+    color: var(--rosa-medio);
+}
+
+.btn-voltar {
+    background-color: transparent;
+    color: var(--rosa-escuro);
+    border: 2px solid var(--rosa-escuro);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-voltar:hover {
+    background-color: var(--rosa-escuro);
+    color: white;
+}
+
+/* Hero Agendamento */
+.hero-agendamento {
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 150px 0 80px;
+    text-align: center;
+}
+
+.hero-agendamento h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.hero-agendamento p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+/* Agendamento */
+.agendamento {
+    padding: 80px 0;
+}
+
+.agendamento-container {
+    display: flex;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.info-agendamento {
+    flex: 1;
+    background-color: var(--branco);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.info-agendamento h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--rosa-escuro);
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.info-item i {
+    color: var(--rosa-escuro);
+    margin-right: 15px;
+    font-size: 1.2rem;
+    margin-top: 3px;
+}
+
+.form-agendamento {
+    flex: 2;
+    background-color: var(--branco);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--cinza-texto);
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--rosa-medio);
+    outline: none;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.servicos-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.servico-option {
+    border: 2px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.servico-option:hover {
+    border-color: var(--rosa-claro);
+}
+
+.servico-option.selected {
+    border-color: var(--rosa-escuro);
+    background-color: rgba(251, 111, 146, 0.05);
+}
+
+.servico-option i {
+    font-size: 1.5rem;
+    color: var(--rosa-escuro);
+    margin-bottom: 10px;
+}
+
+.servico-option h4 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.servico-option .preco {
+    font-weight: 600;
+    color: var(--rosa-escuro);
+}
+
+.horarios-disponiveis {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.horario-option {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.horario-option:hover {
+    background-color: var(--rosa-claro);
+}
+
+.horario-option.selected {
+    background-color: var(--rosa-escuro);
+    color: white;
+    border-color: var(--rosa-escuro);
+}
+
+.horario-option.disabled {
+    background-color: #f5f5f5;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+.btn-agendar {
+    background-color: var(--rosa-escuro);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-agendar:hover {
+    background-color: var(--rosa-medio);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(251, 111, 146, 0.3);
+}
+
+.btn-agendar:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Confirmação */
+.confirmacao {
+    display: none;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.confirmacao i {
+    font-size: 4rem;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.confirmacao h2 {
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+.resumo-agendamento {
+    background-color: var(--branco);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    max-width: 500px;
+    margin: 0 auto 30px;
+    text-align: left;
+}
+
+.resumo-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.resumo-item:last-child {
+    border-bottom: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--rosa-escuro);
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 50px 0 20px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-col h3 {
+    color: var(--rosa-claro);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: var(--rosa-claro);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    background-color: var(--rosa-medio);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .agendamento-container {
+        flex-direction: column;
+    }
+    
+    .hero-agendamento h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .servicos-lista {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-agendamento {
+        padding: 130px 0 50px;
+    }
+    
+    .hero-agendamento h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-agendamento p {
+        font-size: 1rem;
+    }
+    
+    .servicos-lista {
+        grid-template-columns: 1fr;
+    }
+}

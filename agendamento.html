@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Horário - Esmalteria Superpoderosas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleAgendamentos.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Esmalteria <span>Superpoderosas</span></h1>
+            </div>
+            
+            <a href="index.html" class="btn-voltar">
+                <i class="fas fa-arrow-left"></i>&nbsp; Voltar ao Site
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Agendamento -->
+    <section class="hero-agendamento">
+        <div class="container">
+            <h2>Agende Seu Horário</h2>
+            <p>Escolha o serviço desejado, selecione uma data e horário disponível e preencha seus dados para confirmar seu agendamento.</p>
+        </div>
+    </section>
+
+    <!-- Agendamento -->
+    <section class="agendamento">
+        <div class="container">
+            <div class="agendamento-container">
+                <div class="info-agendamento">
+                    <h3>Informações Importantes</h3>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Horário de Funcionamento</h4>
+                            <p>Segunda a Sábado: 7:30 às 20:00<br>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-calendar-check"></i>
+                        <div>
+                            <h4>Duração dos Serviços</h4>
+                            <p>Alongamento: 3h a 3h30<br>Manutenção: 2h a 2h30<br>Design Simples: 1h a 1h30</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <div>
+                            <h4>Política de Agendamento</h4>
+                            <p>Pedimos que chegue 5 minutos antes do horário marcado. Cancelamentos devem ser feitos com pelo menos 24h de antecedência.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Localização</h4>
+                            <p>Qna 13 lote 33 loja 2<br>Brasília - DF</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-agendamento">
+                    <form id="form-agendamento">
+                        <div class="form-group">
+                            <label for="servico">Selecione o Serviço Desejado *</label>
+                            <div class="servicos-lista">
+                                <div class="servico-option" data-servico="alongamento-gel" data-preco="120.00">
+                                    <i class="fas fa-hand-sparkles"></i>
+                                    <h4>Alongamento com Gel</h4>
+                                    <div class="preco">R$ 120,00</div>
+                                </div>
+                                
+                                <div class="servico-option" data-servico="manutencao" data-preco="80.00">
+                                    <i class="fas fa-tools"></i>
+                                    <h4>Manutenção</h4>
+                                    <div class="preco">R$ 80,00</div>
+                                </div>
+                                
+                                <div class="servico-option" data-servico="unhas-fibra" data-preco="140.00">
+                                    <i class="fas fa-feather-alt"></i>
+                                    <h4>Unhas de Fibra</h4>
+                                    <div class="preco">R$ 140,00</div>
+                                </div>
+                                
+                                <div class="servico-option" data-servico="banho-gel" data-preco="90.00">
+                                    <i class="fas fa-bath"></i>
+                                    <h4>Banho de Gel</h4>
+                                    <div class="preco">R$ 90,00</div>
+                                </div>
+                                
+                                <div class="servico-option" data-servico="spa-maos-pes" data-preco="100.00">
+                                    <i class="fas fa-spa"></i>
+                                    <h4>Spa Mãos e Pés</h4>
+                                    <div class="preco">R$ 100,00</div>
+                                </div>
+                                
+                                <div class="servico-option" data-servico="design-especial" data-preco="60.00">
+                                    <i class="fas fa-palette"></i>
+                                    <h4>Design Especial</h4>
+                                    <div class="preco">R$ 60,00</div>
+                                </div>
+                            </div>
+                            <input type="hidden" id="servico" name="servico" required>
+                            <input type="hidden" id="preco-servico" name="preco-servico">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="data">Data Desejada *</label>
+                                <input type="date" id="data" class="form-control" min="" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="horario">Horário Disponível *</label>
+                                <div class="horarios-disponiveis" id="horarios-container">
+                                    <!-- Horários serão gerados via JavaScript -->
+                                </div>
+                                <input type="hidden" id="horario" name="horario" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome">Nome Completo *</label>
+                                <input type="text" id="nome" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="telefone">Telefone *</label>
+                                <input type="tel" id="telefone" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="observacoes">Observações (Opcional)</label>
+                            <textarea id="observacoes" class="form-control" rows="3" placeholder="Alguma preferência especial, alergia a produtos, etc."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-agendar" id="btn-confirmar" disabled>Confirmar Agendamento</button>
+                    </form>
+                    
+                    <div class="confirmacao" id="confirmacao">
+                        <i class="fas fa-check-circle"></i>
+                        <h2>Agendamento Confirmado!</h2>
+                        <p>Seu horário foi reservado com sucesso. Em breve você receberá um e-mail de confirmação.</p>
+                        
+                        <div class="resumo-agendamento">
+                            <h3>Resumo do Agendamento</h3>
+                            <div class="resumo-item">
+                                <span>Serviço:</span>
+                                <span id="resumo-servico">-</span>
+                            </div>
+                            <div class="resumo-item">
+                                <span>Data:</span>
+                                <span id="resumo-data">-</span>
+                            </div>
+                            <div class="resumo-item">
+                                <span>Horário:</span>
+                                <span id="resumo-horario">-</span>
+                            </div>
+                            <div class="resumo-item">
+                                <span>Valor:</span>
+                                <span id="resumo-valor">-</span>
+                            </div>
+                        </div>
+                        
+                        <a href="index.html" class="btn-voltar">
+                            <i class="fas fa-home"></i>&nbsp; Voltar à Página Inicial
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Esmalteria Superpoderosas</h3>
+                    <p>Especialistas em alongamento de unhas com gel. Beleza, qualidade e satisfação garantida.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Horário de Funcionamento</h3>
+                    <ul>
+                        <li>Segunda a Sábado: 7:30 às 20:00</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Qna 13 lote 33 loja 2 | Brasília - DF</li>
+                        <li><i class="fas fa-phone-alt"></i> (61)9 2921-1630</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Esmalteria Superpoderosas. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scriptAgendamento.js"></script>
+</body>
+</html>
