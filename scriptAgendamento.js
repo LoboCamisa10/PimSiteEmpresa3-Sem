@@ -196,4 +196,43 @@ document.addEventListener('DOMContentLoaded', function() {
             testImage.src = imageUrl;
         });
     });
+
+    // Debug para verificar carregamento de imagens no mobile
+    document.addEventListener('DOMContentLoaded', function() {
+    console.log('Verificando carregamento de imagens...');
+    
+    // Verificar imagens de serviço
+    const servicoImgs = document.querySelectorAll('.servico-img');
+    servicoImgs.forEach((img, index) => {
+        const bgImage = window.getComputedStyle(img).backgroundImage;
+        const imageUrl = bgImage.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
+        
+        console.log(`Serviço ${index + 1}: ${imageUrl}`);
+        
+        // Testar carregamento
+        const testImg = new Image();
+        testImg.onload = function() {
+            console.log(`✓ Imagem ${index + 1} carregada`);
+        };
+        testImg.onerror = function() {
+            console.error(`✗ Erro na imagem ${index + 1}: ${imageUrl}`);
+            img.classList.add('fallback');
+            img.innerHTML = '<i class="fas fa-exclamation-triangle"></i><span>Imagem não carregada</span>';
+        };
+        testImg.src = imageUrl.split(',')[0].trim(); // Pega a primeira URL
+    });
+    
+    // Verificar imagens da galeria
+    const galeriaImgs = document.querySelectorAll('.galeria-item img');
+    galeriaImgs.forEach((img, index) => {
+        img.onload = function() {
+            console.log(`✓ Galeria imagem ${index + 1} carregada`);
+        };
+        img.onerror = function() {
+            console.error(`✗ Erro galeria imagem ${index + 1}: ${this.src}`);
+            this.style.display = 'none';
+            this.parentElement.innerHTML = '<div style="display:flex; align-items:center; justify-content:center; height:100%; color: var(--rosa-escuro);"><i class="fas fa-image"></i></div>';
+        };
+    });
+});
 });

@@ -1,4 +1,3 @@
-
 :root {
     --rosa-claro: #FFC2D1;
     --rosa-medio: #FF8FAB;
@@ -203,9 +202,9 @@ nav ul li a:hover {
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
+    background-color: var(--rosa-claro); 
 }
 
-/* Gradiente sobre as imagens para melhor contraste */
 .servico-img::after {
     content: '';
     position: absolute;
@@ -216,42 +215,72 @@ nav ul li a:hover {
     background: linear-gradient(to bottom, rgba(251, 111, 146, 0.1), rgba(251, 111, 146, 0.3));
 }
 
-/* Imagens locais para cada serviço */
 .servico-img.alongamento {
-    background-image: url('../images/Alongamentos.jpeg');
+    background-image: url('./images/Alongamentos.jpeg');
+    background-image: 
+        url('./images/Alongamentos.jpeg'),
+        url('images/Alongamentos.jpeg'),
+        url('/images/Alongamentos.jpeg');
 }
 
 .servico-img.manutencao {
-    background-image: url('../images/Manutencao.jpeg');
+    background-image: url('./images/Manutencao.jpeg');
+    background-image: 
+        url('./images/Manutencao.jpeg'),
+        url('images/Manutencao.jpeg'),
+        url('/images/Manutencao.jpeg');
 }
 
 .servico-img.fibra {
-    background-image: url('../images/AplicacaodeFibra.jpeg');
+    background-image: url('./images/AplicacaodeFibra.jpeg');
+    background-image: 
+        url('./images/AplicacaodeFibra.jpeg'),
+        url('images/AplicacaodeFibra.jpeg'),
+        url('/images/AplicacaodeFibra.jpeg');
 }
 
 .servico-img.banho-gel {
-    background-image: url('../images/banhodeGel.jpeg');
+    background-image: url('./images/banhodeGel.jpeg');
+    background-image: 
+        url('./images/banhodeGel.jpeg'),
+        url('images/banhodeGel.jpeg'),
+        url('/images/banhodeGel.jpeg');
 }
 
 .servico-img.spa {
-    background-image: url('../images/SparMaosPes.jpeg');
+    background-image: url('./images/SparMaosPes.jpeg');
+    background-image: 
+        url('./images/SparMaosPes.jpeg'),
+        url('images/SparMaosPes.jpeg'),
+        url('/images/SparMaosPes.jpeg');
 }
 
 .servico-img.design {
-    background-image: url('../images/Decoracoes.jpeg');
+    background-image: url('./images/Decoracoes.jpeg');
+    background-image: 
+        url('./images/Decoracoes.jpeg'),
+        url('images/Decoracoes.jpeg'),
+        url('/images/Decoracoes.jpeg');
 }
 
-/* Fallback para quando as imagens não carregarem */
 .servico-img.fallback {
     background-color: var(--rosa-claro);
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .servico-img.fallback i {
     font-size: 3rem;
     color: var(--rosa-escuro);
+    margin-bottom: 10px;
+}
+
+.servico-img.fallback span {
+    color: var(--rosa-escuro);
+    font-size: 0.9rem;
+    text-align: center;
 }
 
 .servico-content {
@@ -262,6 +291,7 @@ nav ul li a:hover {
     font-size: 1.5rem;
     margin-bottom: 10px;
 }
+
 /* Sobre */
 .sobre {
     padding: 80px 0;
@@ -284,6 +314,8 @@ nav ul li a:hover {
     width: 100%;
     height: auto;
     display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 .sobre-content {
@@ -311,7 +343,6 @@ nav ul li a:hover {
     font-size: 1.2rem;
 }
 
-/* Galeria */
 .galeria {
     padding: 80px 0;
     background-color: var(--cinza-claro);
@@ -337,6 +368,8 @@ nav ul li a:hover {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s;
+    display: block;
+    max-width: 100%;
 }
 
 .galeria-item:hover img {
@@ -555,7 +588,8 @@ footer {
 .modal-content img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
+    display: block;
+    max-width: 100%;
 }
 
 .close-modal {
@@ -626,6 +660,14 @@ footer {
     .section-title h2 {
         font-size: 2rem;
     }
+    
+    .servico-img {
+        height: 180px; 
+    }
+    
+    .galeria-item {
+        height: 200px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -640,5 +682,15 @@ footer {
     .btn-hero {
         padding: 12px 25px;
         font-size: 1rem;
+    }
+    
+    .servicos-grid {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+    
+    .galeria-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px;
     }
 }
