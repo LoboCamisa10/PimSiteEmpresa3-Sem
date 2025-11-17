@@ -218,27 +218,27 @@ nav ul li a:hover {
 
 /* Imagens locais para cada serviço */
 .servico-img.alongamento {
-    background-image: url('images/Alongamentos.jpeg');
+    background-image: url('../images/Alongamentos.jpeg');
 }
 
 .servico-img.manutencao {
-    background-image: url('images/Manutenção.jpeg');
+    background-image: url('../images/Manutencao.jpeg');
 }
 
 .servico-img.fibra {
-    background-image: url('images/AplicaçãodeFibra.jpeg');
+    background-image: url('../images/AplicacaodeFibra.jpeg');
 }
 
 .servico-img.banho-gel {
-    background-image: url('images/banhodeGel.jpeg');
+    background-image: url('../images/banhodeGel.jpeg');
 }
 
 .servico-img.spa {
-    background-image: url('images/SparMãosPés.jpeg');
+    background-image: url('../images/SparMaosPes.jpeg');
 }
 
 .servico-img.design {
-    background-image: url('images/Decoraçoes.jpeg');
+    background-image: url('../images/Decoracoes.jpeg');
 }
 
 /* Fallback para quando as imagens não carregarem */
